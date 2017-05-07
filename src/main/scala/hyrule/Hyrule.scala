@@ -10,11 +10,11 @@ class Hyrule extends JavaPlugin{
     val pm = getServer.getPluginManager
     pm.registerEvents(new Quests(), this)
     pm.registerEvents(new Hookshot(this), this)
-    getLogger.info("hyrule.Hyrule plugin enabled")
+    getLogger.info("Hyrule plugin enabled")
   }
 
-  override def onDisable() = {
-    getLogger.info("hyrule.Hyrule plugin disabled")
+  override def onDisable(): Unit = {
+    getLogger.info("Hyrule plugin disabled")
   }
 
 }

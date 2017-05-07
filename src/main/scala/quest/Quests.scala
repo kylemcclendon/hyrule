@@ -74,13 +74,10 @@ class Quests extends Listener{
   }
 
   def Resolve(condition: String, player: Player, bookMeta: BookMeta): Unit ={
-    val parts = condition.split("\n")
+    val dirtyParts = condition.split("\n").toList
+    val parts: List[String] = dirtyParts.map(p => ChatColor.stripColor(p))
 
-    for(i <- parts.indices){
-      parts(i) = parts(i).replace("§0", "")
-    }
-
-    if(parts(0).equalsIgnoreCase("Biggoron")){
+    if(parts.head.equalsIgnoreCase("Biggoron")){
       if(parts(1).equals("Nothing")){
         val j = player.getInventory.getContents.length
 

@@ -1,7 +1,8 @@
 package hookshot
 
 import hyrule.Hyrule
-import net.minecraft.server.v1_11_R1.EntityArrow
+import net.minecraft.server.EntityArrow
+//import net.minecraft.server.v1_11_R1.EntityArrow
 import org.bukkit.{Bukkit, Location, Material}
 import org.bukkit.block.Block
 import org.bukkit.entity.{Arrow, Player}
@@ -100,11 +101,13 @@ class Hookshot(instance: Hyrule) extends Listener{
         return
       }
 
-      if((itemStack.getItemMeta.getDisplayName.equalsIgnoreCase("hookshot") || itemStack.getItemMeta.getDisplayName.equalsIgnoreCase("longhshot")) && event.getEntity.isInstanceOf[Arrow]){
+      if((itemStack.getItemMeta.getDisplayName.equalsIgnoreCase("hookshot") || itemStack.getItemMeta.getDisplayName.equalsIgnoreCase("longshot")) && event.getEntity.isInstanceOf[Arrow]){
         Bukkit.getScheduler.scheduleSyncDelayedTask(this.instance, new Runnable(){
           override def run(): Unit = {
             try{
-              val entityArrow = event.getEntity.asInstanceOf[org.bukkit.craftbukkit.v1_11_R1.entity.CraftArrow].getHandle
+              val entityArrow = event.getEntity.asInstanceOf[EntityArrow]
+
+//              val entityArrow = event.getEntity.asInstanceOf[org.bukkit.craftbukkit.v1_11_R1.entity.CraftArrow].getHandle
 
               val fieldX= classOf[EntityArrow].getDeclaredField("h")
               val fieldY= classOf[EntityArrow].getDeclaredField("at")
