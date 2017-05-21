@@ -77,7 +77,7 @@ class Quests extends Listener{
     val dirtyParts = condition.split("\n").toList
     val parts: List[String] = dirtyParts.map(p => ChatColor.stripColor(p))
 
-    if(parts.head.equalsIgnoreCase("Biggoron")){
+    if(parts.head.equalsIgnoreCase("Quest")){
       if(parts(1).equals("Nothing")){
         val j = player.getInventory.getContents.length
 
